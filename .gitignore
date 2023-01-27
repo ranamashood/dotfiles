@@ -34,3 +34,5 @@ Pictures/*
 !.local/share/
 .local/share/*
 !.local/share/fonts/
+
+!.scripts/

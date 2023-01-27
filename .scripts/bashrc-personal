@@ -1,0 +1,40 @@
+#!/bin/bash
+
+export DE=xfce
+
+alias clean-packages="pacman -Scc && yay -Scc"
+alias start-kvm="virsh net-start default"
+#alias list-packages-size="expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'"
+alias get-drives="sudo parted -l"
+alias mic-listen="pacmd load-module module-loopback"
+alias mic-unlisten="pacmd unload-module module-loopback"
+alias pc="unset HISTFILE && sudo protonvpn c"
+alias pd="unset HISTFILE && sudo protonvpn d"
+
+list-packages-size() {
+    expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'
+}
+list-packages-date() {
+    expac --timefmt='%F %T' '%l %n' | sort -n
+}
+
+# PATH+=':$HOME/.scripts:$HOME/hdd/.npm-global/bin'
+PATH+=":$HOME/.scripts"
+export NPM_CONFIG_PREFIX="$HOME/.npm-global"
+PATH+=":$HOME/flutter/bin"
+PATH="$HOME/bin:$PATH"
+
+# aliasing files/directories by reading alias-directories
+while read -r line
+do
+    words=($line)
+    alias ${words[0]}=${words[1]}
+done < ~/.scripts/alias-directories
+
+# path=~/university/sem-5/
+
+# if [[ ! -d $path ]]; then
+#     echo "dir doesn't exist"
+# fi
+
+eval "$(starship init bash)"

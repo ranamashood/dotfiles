@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ~/.scripts/ || exit
+
+runFile=$(find . -executable -type f | fzf)
+runFile="${runFile:2}"
+$runFile
