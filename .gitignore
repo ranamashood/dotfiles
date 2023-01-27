@@ -1,38 +1,51 @@
 /*
+
+# not to be ignored
 !.gitignore
 !README.md
 
 !.config/
 .config/*
 
+# kitty
 !.config/kitty/
 
+# spicetify themes
 !.config/spicetify/
 .config/spicetify/*
 !.config/spicetify/Themes/
 
+# neofetch
 !.config/neofetch/
 
+# lvim
 !.config/lvim/
 .config/lvim/*
 !.config/lvim/config.lua
 
+# hypr
 !.config/hypr/
 
+# htop
 !.config/htop/
 
+# bashrc
 !.bashrc
 
+# wallpapers
 !Pictures/
 Pictures/*
 !Pictures/wallpapers/
 
+# themes
 !.themes/
 
+# fonts
 !.local/
 .local/*
 !.local/share/
 .local/share/*
 !.local/share/fonts/
 
+# scripts
 !.scripts/
