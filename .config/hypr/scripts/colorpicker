@@ -1,0 +1,26 @@
+#!/bin/bash
+
+## Simple Script To Pick Color Quickly.
+
+# color=$(grim -g "$(slurp -b 1B1F2800 -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n1 | cut -d' ' -f4)
+color=$(hyprpicker)
+image=/tmp/${color}.png
+
+# create mask
+# convert -size 48x48 xc:none -draw "roundrectangle 0,0,48,48,10,10" ../mako/icons/mask.png
+
+main() {
+    if [[ "$color" ]]; then
+        # copy color code to clipboard
+        echo $color | tr -d "\n" | wl-copy
+        # generate preview
+        convert -size 48x48 xc:"$color" ${image}
+        # rounded corners
+        convert ${image} -matte ~/.config/hypr/mako/icons/mask.png -compose DstIn -composite ${image}
+        # notify about it
+        notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i ${image} "$color, copied to clipboard."
+    fi
+}
+
+# Run the script
+main
