@@ -65,7 +65,7 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 -- lvim.keys.normal_mode["<leader>r"] = ":w<CR>:RunCode<CR>"
 lvim.builtin.which_key.mappings["r"] = { ":w<CR>:RunCode<CR>", "Run Code" }
-lvim.builtin.which_key.mappings["t"]["a"] = { ":ToggleAlternate<CR>", "Toggle Alternate" }
+-- lvim.builtin.which_key.mappings["t"]["a"] = { ":ToggleAlternate<CR>", "Toggle Alternate" }
 lvim.builtin.which_key.mappings["m"] = {
   name = "+My Keymappings",
   a = { "<cmd>ToggleAlternate<cr>", "Toggle Alternate" },
