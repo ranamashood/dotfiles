@@ -13,8 +13,8 @@
   /* "height": 30, */
 
   "modules-left": ["wlr/workspaces", "cpu", "memory"],
-  /* "modules-center": ["custom/media"], */
-  "modules-center": ["custom/cava", "custom/media"],
+  "modules-center": ["custom/media"],
+  /* "modules-center": ["custom/cava", "custom/media"], */
   /* "modules-center": ["custom/spotify"], */
   "modules-right": ["battery", "pulseaudio", "network", "clock", "tray"],
 }
