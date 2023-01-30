@@ -184,7 +184,7 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { "lervag/vimtex" },
+  -- { "lervag/vimtex" },
   { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' },
   -- { 'vimwiki/vimwiki' },
   { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end },
@@ -274,7 +274,7 @@ lvim.plugins = {
 -- })
 
 -- vim options
-vim.g.vimtex_view_method = 'zathura'
+-- vim.g.vimtex_view_method = 'zathura'
 -- vim.g.transparent_enabled = true
 vim.opt.relativenumber = true
 
