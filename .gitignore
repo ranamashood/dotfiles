@@ -33,9 +33,9 @@
 !.bashrc
 
 # wallpapers
-# !Pictures/
-# Pictures/*
-# !Pictures/wallpapers/
+!Pictures/
+Pictures/*
+!Pictures/wallpapers/
 
 # themes
 !.themes/
