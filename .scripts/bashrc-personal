@@ -1,6 +1,10 @@
 #!/bin/bash
 
-export DE=xfce
+export EDITOR='lvim'
+export VISUAL='lvim'
+# to be fixed
+# export PAGER='lvim -R'
+# export MANPAGER="lvim -c 'set ft=man' -"
 
 alias clean-packages="pacman -Scc && yay -Scc"
 alias start-kvm="virsh net-start default"
