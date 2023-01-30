@@ -223,7 +223,8 @@
       "default": ""
     },
     "escape": true,
-    "exec": "$HOME/.config/hypr/scripts/mediaplayer.py 2> /dev/null"
+    "exec": "$HOME/.config/hypr/scripts/mediaplayer.py 2> /dev/null",
+    "on-click": "playerctl --player=spotify play-pause",
     // "exec": "$HOME/.config/hypr/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
   },
 
