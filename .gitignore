@@ -32,11 +32,6 @@
 # bashrc
 !.bashrc
 
-# wallpapers
-!Pictures/
-Pictures/*
-!Pictures/wallpapers/
-
 # themes
 !.themes/
 
