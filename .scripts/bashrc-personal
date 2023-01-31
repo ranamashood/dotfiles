@@ -42,3 +42,4 @@ done < ~/.scripts/alias-directories
 # fi
 
 eval "$(starship init bash)"
+source /usr/share/autojump/autojump.bash
