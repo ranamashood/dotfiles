@@ -14,6 +14,12 @@ alias mic-listen="pacmd load-module module-loopback"
 alias mic-unlisten="pacmd unload-module module-loopback"
 alias pc="unset HISTFILE && sudo protonvpn c"
 alias pd="unset HISTFILE && sudo protonvpn d"
+alias uh="unset HISTFILE"
+
+gra ()
+{
+    git remote add origin git@github.com:ranamashood/$1.git
+}
 
 list-packages-size() {
     expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'
@@ -27,6 +33,7 @@ PATH+=":$HOME/.scripts"
 export NPM_CONFIG_PREFIX="$HOME/.npm-global"
 PATH+=":$HOME/flutter/bin"
 PATH="$HOME/bin:$PATH"
+PATH+=":~/.emacs.d/bin"
 
 # aliasing files/directories by reading alias-directories
 while read -r line
@@ -43,3 +50,5 @@ done < ~/.scripts/alias-directories
 
 eval "$(starship init bash)"
 source /usr/share/autojump/autojump.bash
+
+fastfetch
