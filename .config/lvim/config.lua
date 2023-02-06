@@ -71,6 +71,7 @@ lvim.builtin.which_key.mappings["m"] = {
   a = { "<cmd>ToggleAlternate<cr>", "Toggle Alternate" },
   e = { "! chmod +x %<cr>", "Make File Executable" },
   m = { "<cmd>MarkdownPreview<cr>", "Opens live markdown viewer" },
+  t = { "<cmd>TagbarToggle<cr>", "Tagbar" },
 }
 -- lvim.builtin.which_key.mappings["m"]["e"] = { "<cmd>! chmod +x %<CR>", "Make File Executable" }
 -- lvim.builtin.which_key.mappings["e"] = { ":NvimTreeToggle<CR>:setlocal relativenumber<CR>", "Explorer" }
@@ -196,6 +197,7 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag" },
   { "rmagatti/alternate-toggler" },
   { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, },
+  { "preservim/tagbar" },
   -- { "hail2u/vim-css3-syntax" },
   -- { "styled-components/vim-styled-components" },
   -- { "neoclide/coc.nvim", branch = 'release' },
@@ -286,8 +288,9 @@ require('code_runner').setup({
     python = "python3 -u",
     typescript = "deno run",
     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-    cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
-    -- cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile",
+    -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+    -- cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
+    cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile",
     -- cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile -s ~/hdd/ ~/hdd1/",
     -- cpp = "cd $dir && g++ ../*.cpp *.cpp -o builtFile && $dir/builtFile",
     sh = "cd $dir && bash $fileName",
@@ -761,3 +764,33 @@ live_server.setup({
   quiet = false,
   no_css_inject = false, -- Disables css injection if true, might be useful when testing out tailwindcss
 })
+
+-- vim.g.tagbar_type_json = {
+--   ctagstype = "json",
+--   kinds = {
+--     o = "objects",
+--     a = "arrays",
+--     n = "numbers",
+--     s = "strings",
+--     b = "booleans",
+--     z = "nulls"
+--   },
+--   sro = ".",
+--   scope2kind = {
+--     object = "o",
+--     array = "a",
+--     number = "n",
+--     string = "s",
+--     boolean = "b",
+--     null = "z"
+--   },
+--   kind2scope = {
+--     o = "object",
+--     a = "array",
+--     n = "number",
+--     s = "string",
+--     b = "boolean",
+--     z = "null"
+--   },
+--   sort = 0
+-- }
