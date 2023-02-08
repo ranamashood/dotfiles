@@ -6,6 +6,11 @@ export VISUAL='lvim'
 # export PAGER='lvim -R'
 # export MANPAGER="lvim -c 'set ft=man' -"
 
+alias ls='exa --git --icons'
+alias la='ls -a'
+alias ll='ls -al'
+alias l='ls'
+
 alias clean-packages="pacman -Scc && yay -Scc"
 alias start-kvm="virsh net-start default"
 #alias list-packages-size="expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'"
