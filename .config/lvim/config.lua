@@ -73,6 +73,12 @@ lvim.builtin.which_key.mappings["m"] = {
   m = { "<cmd>MarkdownPreview<cr>", "Opens live markdown viewer" },
   t = { "<cmd>TagbarToggle<cr>", "Tagbar" },
 }
+lvim.builtin.which_key.mappings["j"] = {
+  name = "+Hop",
+  a = { "<cmd>HopAnywhere<cr>", "Anywhere" },
+  c = { "<cmd>HopChar1<cr>", "Character" },
+  w = { "<cmd>HopWord<cr>", "Word" },
+}
 -- lvim.builtin.which_key.mappings["m"]["e"] = { "<cmd>! chmod +x %<CR>", "Make File Executable" }
 -- lvim.builtin.which_key.mappings["e"] = { ":NvimTreeToggle<CR>:setlocal relativenumber<CR>", "Explorer" }
 
@@ -198,6 +204,12 @@ lvim.plugins = {
   { "rmagatti/alternate-toggler" },
   { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, },
   { "preservim/tagbar" },
+  { 'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end },
   -- { "hail2u/vim-css3-syntax" },
   -- { "styled-components/vim-styled-components" },
   -- { "neoclide/coc.nvim", branch = 'release' },
