@@ -70,7 +70,9 @@ lvim.builtin.which_key.mappings["m"] = {
   name = "+My Keymappings",
   a = { "<cmd>ToggleAlternate<cr>", "Toggle Alternate" },
   e = { "! chmod +x %<cr>", "Make File Executable" },
-  m = { "<cmd>MarkdownPreview<cr>", "Opens live markdown viewer" },
+  l = { "<cmd>MarkdownPreview<cr>", "Opens live markdown viewer" },
+  c = { "<cmd>MindClose<cr>", "Mind close" },
+  m = { "<cmd>MindOpenProject<cr>", "Mind open project" },
   t = { "<cmd>TagbarToggle<cr>", "Tagbar" },
 }
 lvim.builtin.which_key.mappings["j"] = {
@@ -210,6 +212,14 @@ lvim.plugins = {
       -- you can configure Hop the way you like here; see :h hop-config
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end },
+  {
+    'phaazon/mind.nvim',
+    branch = 'v2.2',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require 'mind'.setup()
+    end
+  },
   -- { "hail2u/vim-css3-syntax" },
   -- { "styled-components/vim-styled-components" },
   -- { "neoclide/coc.nvim", branch = 'release' },
