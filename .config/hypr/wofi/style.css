@@ -5,7 +5,7 @@
 
 #window {
 	background-color: --wofi-color0;
-	color: --wofi-color7;
+	color: --wofi-color2;
 }
 
 #outer-box {
@@ -28,15 +28,15 @@
 }
 
 #text {
-  color: --wofi-color7;
+  color: --wofi-color2;
 }
 
 #text:selected {
-  color: --wofi-color7;
+  color: --wofi-color2;
 }
 
 #entry {
-	padding: 8px;
+	padding: 6px;
 }
 
 #entry:selected {
@@ -51,11 +51,6 @@
 
 #input, #entry:selected {
 	border-radius: 10px;
-  color: --wofi-color7;
-  background-color: transparent;
-}
-
-#entry:selected {
-  border: 2px solid --wofi-color1;
-  padding: 6px;
+  color: --wofi-color2;
+  background-color: --wofi-color1;
 }
