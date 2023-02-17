@@ -156,8 +156,8 @@ lvim.builtin.treesitter.highlight.enable = true
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "beautysh", filetypes = { "sh" } },
-  { command = "prettierd", filetypes = { "typescript", "typescriptreact" } },
+  { command = "beautysh",     filetypes = { "sh" } },
+  { command = "prettierd",    filetypes = { "typescript", "typescriptreact" } },
   { command = "markdownlint", filetypes = { "markdown" } },
   -- { command = "black", filetypes = { "python" } },
   -- { command = "isort", filetypes = { "python" } },
@@ -194,9 +194,10 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   -- { "lervag/vimtex" },
-  { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' },
+  { 'CRAG666/code_runner.nvim',     requires = 'nvim-lua/plenary.nvim' },
   -- { 'vimwiki/vimwiki' },
-  { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup({}) end },
+  { "kylechui/nvim-surround",       tag = "*",                                          config = function() require(
+      "nvim-surround").setup({}) end },
   { "folke/trouble.nvim" },
   { "aurum77/live-server.nvim" },
   { "xiyaowong/nvim-transparent" },
@@ -723,7 +724,8 @@ vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandRGB<cr>", opts)
 -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandHSL<cr>", opts)
 
-require("color-picker").setup({ -- for changing icons & mappings
+require("color-picker").setup({
+-- for changing icons & mappings
   -- ["icons"] = { "ﱢ", "" },
   -- ["icons"] = { "ﮊ", "" },
   -- ["icons"] = { "", "ﰕ" },
