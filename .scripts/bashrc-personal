@@ -53,6 +53,24 @@ done < ~/.scripts/alias-directories
 #     echo "dir doesn't exist"
 # fi
 
+launch ()
+{
+    $HOME/.config/hypr/scripts/$1 & disown
+}
+
+wal-tile() {
+    wal -n -i "$@"
+    swww img "$(< "${HOME}/.cache/wal/wal")" --transition-step 2 --transition-fps 60 --transition-type center
+    launch statusbar
+    launch notifications
+}
+
+wal-theme() {
+    wal -n --theme "$@"
+    launch statusbar
+    launch notifications
+}
+
 eval "$(starship init bash)"
 source /usr/share/autojump/autojump.bash
 

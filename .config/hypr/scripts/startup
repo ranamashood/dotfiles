@@ -24,6 +24,7 @@ dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 syncthing &
 navidrome --musicfolder ~/Music &
 /usr/lib/kdeconnectd &
+swww init
 
 #insync start &
 #dropbox &

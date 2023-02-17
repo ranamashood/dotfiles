@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-CONFIG="$HOME/.config/hypr/mako/config"
+# CONFIG="$HOME/.config/hypr/mako/config"
+CONFIG="$HOME/.cache/wal/colors-mako"
+
+if [[ $(pidof mako) ]]; then
+    killall mako
+fi
 
 if [[ ! $(pidof mako) ]]; then
-	mako --config ${CONFIG}
+    mako --config ${CONFIG}
 fi
