@@ -23,6 +23,16 @@ window#waybar.hidden {
   opacity: 0.7;
 }
 
+tooltip {
+  background: #1E1E2E;
+  border: 1px solid #313244;
+}
+
+tooltip label {
+  color: #D9E0EE;
+  padding: 3px 7px;
+}
+
 #workspaces,
 #backlight,
 #battery,
