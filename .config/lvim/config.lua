@@ -157,7 +157,7 @@ lvim.builtin.treesitter.highlight.enable = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "beautysh",     filetypes = { "sh" } },
-  { command = "prettierd",    filetypes = { "typescript", "typescriptreact" } },
+  { command = "prettierd",    filetypes = { "typescript", "typescriptreact", "css" } },
   { command = "markdownlint", filetypes = { "markdown" } },
   -- { command = "black", filetypes = { "python" } },
   -- { command = "isort", filetypes = { "python" } },
@@ -196,8 +196,10 @@ lvim.plugins = {
   -- { "lervag/vimtex" },
   { 'CRAG666/code_runner.nvim',     requires = 'nvim-lua/plenary.nvim' },
   -- { 'vimwiki/vimwiki' },
-  { "kylechui/nvim-surround",       tag = "*",                                          config = function() require(
-      "nvim-surround").setup({}) end },
+  { "kylechui/nvim-surround", tag = "*", config = function()
+    require(
+      "nvim-surround").setup({})
+  end },
   { "folke/trouble.nvim" },
   { "aurum77/live-server.nvim" },
   { "xiyaowong/nvim-transparent" },
@@ -310,7 +312,7 @@ require('code_runner').setup({
     java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
     python = "python3 -u",
     typescript = "deno run",
-    rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+    rust = "cd $dir && cargo run",
     -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
     -- cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
     cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile",
@@ -725,7 +727,7 @@ vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandHSL<cr>", opts)
 
 require("color-picker").setup({
--- for changing icons & mappings
+  -- for changing icons & mappings
   -- ["icons"] = { "ﱢ", "" },
   -- ["icons"] = { "ﮊ", "" },
   -- ["icons"] = { "", "ﰕ" },
