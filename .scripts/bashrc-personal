@@ -20,6 +20,7 @@ alias mic-unlisten="pacmd unload-module module-loopback"
 alias pc="unset HISTFILE && sudo protonvpn c"
 alias pd="unset HISTFILE && sudo protonvpn d"
 alias uh="unset HISTFILE"
+alias dust="dust -X hdd"
 
 gra ()
 {
