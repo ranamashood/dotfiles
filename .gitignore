@@ -41,6 +41,7 @@
 !.local/share/
 .local/share/*
 !.local/share/fonts/
+.local/share/fonts/.uuid
 
 # scripts
 !.scripts/
