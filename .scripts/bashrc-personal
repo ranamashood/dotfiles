@@ -2,9 +2,7 @@
 
 export EDITOR='lvim'
 export VISUAL='lvim'
-# to be fixed
-# export PAGER='lvim -R'
-# export MANPAGER="lvim -c 'set ft=man' -"
+export MANPAGER='lvim +Man!'
 
 alias ls='exa --git --icons'
 alias la='ls -a'
