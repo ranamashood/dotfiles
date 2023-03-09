@@ -10,7 +10,7 @@
 
 window#waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   /* background-color: rgb(40, 40, 40); */
   /* background-color: #1e1e2e; */
   /* border: 2px solid #313244; */
@@ -24,12 +24,12 @@ window#waybar.hidden {
 }
 
 tooltip {
-  background: #1E1E2E;
+  background: #1e1e2e;
   border: 1px solid #313244;
 }
 
 tooltip label {
-  color: #D9E0EE;
+  color: #d9e0ee;
   padding: 3px 7px;
 }
 
@@ -55,14 +55,14 @@ tooltip label {
 #custom-spotify,
 #custom-cava,
 #custom-media {
-  color: #D9E0EE;
-  background-color: #1E1E2E;
+  color: #d9e0ee;
+  background-color: #1e1e2e;
   border: 2px solid #313244;
   /* border: 2px solid #313244; */
   /* background-color: rgb(78, 78, 78); */
-	border-radius: 10px;
-	margin: 0px 3px;
-	padding: 0px 10px;
+  border-radius: 10px;
+  margin: 0px 3px;
+  padding: 0px 10px;
   /* border: 2px solid #3a3b3c; */
 }
 
@@ -87,16 +87,16 @@ tooltip label {
 /* } */
 
 @keyframes blink {
-    to {
-        color: #000000;
-    }
+  to {
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
   color: rgb(200, 200, 200);
   background-color: rgb(78, 78, 78);
-	/* background-color: #f38ba8; */
- /*  color: #f38ba8; */
+  /* background-color: #f38ba8; */
+  /*  color: #f38ba8; */
   /* animation-name: blink; */
   /* animation-duration: 0.5s; */
   /* animation-timing-function: linear; */
@@ -105,10 +105,10 @@ tooltip label {
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+  -gtk-icon-effect: highlight;
 }
 
 #workspaces {
@@ -123,7 +123,7 @@ tooltip label {
 /* } */
 
 #workspaces button {
-  color: #D9E0EE;
+  color: #d9e0ee;
   padding: 0px 2px;
 }
 
@@ -134,7 +134,7 @@ tooltip label {
 
 #workspaces button.active {
   background-color: rgb(150, 150, 150);
-  color: #1E1E2E;
+  color: #1e1e2e;
   border-radius: 9px;
   padding: 0px 7px;
   transition: padding 100ms;
@@ -145,14 +145,15 @@ tooltip label {
 }
 
 #pulseaudio.bluetooth {
-	background-color: #f5c2e7;
+  background-color: #f5c2e7;
 }
 #pulseaudio.muted {
-	background-color: #313244;
-	color: #cdd6f4;
+  background-color: #313244;
+  color: #cdd6f4;
 }
 
-#network.disconnected,#network.disabled {
-	background-color: #313244;
-	color: #cdd6f4;
+#network.disconnected,
+#network.disabled {
+  background-color: #313244;
+  color: #cdd6f4;
 }
