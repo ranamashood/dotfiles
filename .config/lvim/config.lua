@@ -25,6 +25,8 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<M-S-l>"] = ":BufferLineMoveNext<CR>"
+lvim.keys.normal_mode["<M-S-h>"] = ":BufferLineMovePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -196,10 +198,14 @@ lvim.plugins = {
   -- { "lervag/vimtex" },
   { 'CRAG666/code_runner.nvim',     requires = 'nvim-lua/plenary.nvim' },
   -- { 'vimwiki/vimwiki' },
-  { "kylechui/nvim-surround", tag = "*", config = function()
-    require(
-      "nvim-surround").setup({})
-  end },
+  {
+    "kylechui/nvim-surround",
+    tag = "*",
+    config = function()
+      require(
+        "nvim-surround").setup({})
+    end
+  },
   { "folke/trouble.nvim" },
   { "aurum77/live-server.nvim" },
   { "xiyaowong/nvim-transparent" },
@@ -209,12 +215,14 @@ lvim.plugins = {
   { "rmagatti/alternate-toggler" },
   { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, },
   { "preservim/tagbar" },
-  { 'phaazon/hop.nvim',
+  {
+    'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end },
+    end
+  },
   {
     'phaazon/mind.nvim',
     branch = 'v2.2',
@@ -314,8 +322,8 @@ require('code_runner').setup({
     typescript = "deno run",
     rust = "cd $dir && cargo run",
     -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-    -- cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
-    cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile",
+    cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
+    -- cpp = "cd $dir && g++ *.cpp -o jk && $dir/jk program.jk",
     -- cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile -s ~/hdd/ ~/hdd1/",
     -- cpp = "cd $dir && g++ ../*.cpp *.cpp -o builtFile && $dir/builtFile",
     sh = "cd $dir && bash $fileName",
@@ -702,19 +710,19 @@ require 'nvim-lastplace'.setup {
 
 local Path = require('plenary.path')
 require('session_manager').setup({
-  sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'), -- The directory where the session files will be saved.
-  path_replacer = '__', -- The character to which the path separator will be replaced for session files.
-  colon_replacer = '++', -- The character to which the colon symbol will be replaced for session files.
+  sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'),                -- The directory where the session files will be saved.
+  path_replacer = '__',                                                       -- The character to which the path separator will be replaced for session files.
+  colon_replacer = '++',                                                      -- The character to which the colon symbol will be replaced for session files.
   autoload_mode = require('session_manager.config').AutoloadMode.LastSession, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
-  autosave_last_session = true, -- Automatically save last session on exit and on session switch.
-  autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
-  autosave_ignore_dirs = {}, -- A list of directories where the session will not be autosaved.
-  autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
+  autosave_last_session = true,                                               -- Automatically save last session on exit and on session switch.
+  autosave_ignore_not_normal = true,                                          -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
+  autosave_ignore_dirs = {},                                                  -- A list of directories where the session will not be autosaved.
+  autosave_ignore_filetypes = {                                               -- All buffers of these file types will be closed before the session is saved.
     'gitcommit',
   },
-  autosave_ignore_buftypes = {}, -- All buffers of these bufer types will be closed before the session is saved.
+  autosave_ignore_buftypes = {},    -- All buffers of these bufer types will be closed before the session is saved.
   autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
-  max_path_length = 0, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
+  max_path_length = 0,              -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
 })
 
 
@@ -735,13 +743,13 @@ require("color-picker").setup({
   -- ["icons"] = { "", "" },
   ["icons"] = { "ﱢ", "" },
   ["border"] = "rounded", -- none | single | double | rounded | solid | shadow
-  ["keymap"] = { -- mapping example:
+  ["keymap"] = {          -- mapping example:
     ["U"] = "<Plug>ColorPickerSlider5Decrease",
     ["O"] = "<Plug>ColorPickerSlider5Increase",
   },
-  ["background_highlight_group"] = "Normal", -- default
+  ["background_highlight_group"] = "Normal",  -- default
   ["border_highlight_group"] = "FloatBorder", -- default
-  ["text_highlight_group"] = "Normal", --default
+  ["text_highlight_group"] = "Normal",        --default
 })
 
 vim.cmd([[hi FloatBorder guibg=NONE]]) -- if you don't want weird border background colors around the popup.
@@ -757,20 +765,20 @@ require("alternate-toggler").setup {
 require("colorizer").setup {
   filetypes = { "*" },
   user_default_options = {
-    RGB = true, -- #RGB hex codes
-    RRGGBB = true, -- #RRGGBB hex codes
-    names = true, -- "Name" codes like Blue or blue
-    RRGGBBAA = true, -- #RRGGBBAA hex codes
-    AARRGGBB = true, -- 0xAARRGGBB hex codes
-    rgb_fn = true, -- CSS rgb() and rgba() functions
-    hsl_fn = true, -- CSS hsl() and hsla() functions
-    css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-    css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+    RGB = true,          -- #RGB hex codes
+    RRGGBB = true,       -- #RRGGBB hex codes
+    names = true,        -- "Name" codes like Blue or blue
+    RRGGBBAA = true,     -- #RRGGBBAA hex codes
+    AARRGGBB = true,     -- 0xAARRGGBB hex codes
+    rgb_fn = true,       -- CSS rgb() and rgba() functions
+    hsl_fn = true,       -- CSS hsl() and hsla() functions
+    css = true,          -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+    css_fn = true,       -- Enable all CSS *functions*: rgb_fn, hsl_fn
     -- Available modes for `mode`: foreground, background,  virtualtext
     mode = "background", -- Set the display mode.
     -- Available methods are false / true / "normal" / "lsp" / "both"
     -- True is same as normal
-    tailwind = false, -- Enable tailwind colors
+    tailwind = false,                              -- Enable tailwind colors
     -- parsers can contain values used in |user_default_options|
     sass = { enable = false, parsers = { css }, }, -- Enable sass colors
     virtualtext = "■",
@@ -786,7 +794,7 @@ end
 
 live_server.setup({
   port = 8080,
-  browser_command = "", -- Empty string starts up with default browser
+  browser_command = "",  -- Empty string starts up with default browser
   quiet = false,
   no_css_inject = false, -- Disables css injection if true, might be useful when testing out tailwindcss
 })
