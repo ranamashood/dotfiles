@@ -1,4 +1,9 @@
 {
+  "hyprland/window": {
+    "format": " {}",
+    "separate-outputs": true
+  },
+
   "backlight": {
     "interval": 2,
     "align": 0,
