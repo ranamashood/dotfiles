@@ -5,7 +5,8 @@ STYLE="$HOME/.config/hypr/wofifull/style.css"
 COLORS="$HOME/.config/hypr/wofifull/colors"
 
 if [[ ! $(pidof wofi) ]]; then
-	wofi --show drun --prompt 'Search...' --conf ${CONFIG} --style ${STYLE} --color ${COLORS}
+    OPTION=$(ls ~/.config/hypr/wofifull/scripts/ | wofi --prompt 'Search...' --conf ${CONFIG} --style ${STYLE} --color ${COLORS})
+    /./$HOME/.config/hypr/wofifull/scripts/$OPTION
 else
-	pkill wofi
+    pkill wofi
 fi
