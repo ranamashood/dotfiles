@@ -1,1 +1,1 @@
-My dotfiles for hyprland (mixed with arcolinux dotfiles)
+My dotfiles for hyprland
