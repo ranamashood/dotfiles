@@ -1,4 +1,6 @@
 ch ~/.config/hypr/
+cn ~/.config/nvim/lua/custom/
+co ~/org/
 uni ~/hdd/university/semester-5/ ~/university/sem-5/
 scr ~/.scripts/
 sc search-scripts
