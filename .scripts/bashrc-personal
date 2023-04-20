@@ -1,13 +1,17 @@
 #!/bin/bash
 
-export EDITOR='lvim'
-export VISUAL='lvim'
-export MANPAGER='lvim +Man!'
+export EDITOR='nvim'
+export VISUAL='nvim'
+# export MANPAGER='nvim +Man!'
+export PAGER='nvimpager'
+export MANPAGER='nvimpager'
 
 alias ls='exa --git --icons'
 alias la='ls -a'
 alias ll='ls -al'
 alias l='ls'
+
+alias v='nvim'
 
 alias clean-packages="pacman -Scc && yay -Scc"
 alias start-kvm="virsh net-start default"
@@ -19,6 +23,9 @@ alias pc="unset HISTFILE && sudo protonvpn c"
 alias pd="unset HISTFILE && sudo protonvpn d"
 alias uh="unset HISTFILE"
 alias dust="dust -X hdd"
+
+# mirror-video
+# ffmpeg -i "$1" -vf hflip -c:a copy "$1-mirrored.mp4"
 
 gra ()
 {
@@ -37,7 +44,7 @@ PATH+=":$HOME/.scripts"
 export NPM_CONFIG_PREFIX="$HOME/.npm-global"
 PATH+=":$HOME/flutter/bin"
 PATH="$HOME/bin:$PATH"
-PATH+=":~/.emacs.d/bin"
+PATH+=":~/.config/emacs/bin/"
 
 # aliasing files/directories by reading alias-directories
 while read -r line
@@ -54,5 +61,11 @@ done < ~/.scripts/alias-directories
 
 eval "$(starship init bash)"
 source /usr/share/autojump/autojump.bash
+
+PATH="/home/mashood/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/mashood/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/mashood/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/mashood/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/mashood/perl5"; export PERL_MM_OPT;
 
 fastfetch
