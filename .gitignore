@@ -15,9 +15,6 @@
 .config/spicetify/*
 !.config/spicetify/Themes/
 
-# neofetch
-!.config/neofetch/
-
 # lvim
 !.config/lvim/
 .config/lvim/*
