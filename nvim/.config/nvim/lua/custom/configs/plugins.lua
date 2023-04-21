@@ -1,0 +1,25 @@
+-- local M = {}
+--
+-- M.codeRunner = {
+--   config = function()
+--     require("code_runner").setup {
+--       startinsert = true,
+--       filetype = {
+--         java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+--         python = "python3 -u",
+--         typescript = "deno run",
+--         rust = "cd $dir && cargo run",
+--         -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+--         c = "cd $dir && gcc $fileName -o builtFile && $dir/builtFile",
+--         cpp = "cd $dir && g++ $fileName -o builtFile && $dir/builtFile",
+--         -- cpp = "cd $dir && g++ *.cpp -o jk && $dir/jk program.jk",
+--         -- cpp = "cd $dir && g++ *.cpp -o builtFile && $dir/builtFile -s ~/hdd/ ~/hdd1/",
+--         -- cpp = "cd $dir && g++ ../*.cpp *.cpp -o builtFile && $dir/builtFile",
+--         sh = "cd $dir && bash $fileName",
+--         cs = "cd $dir && dotnet run",
+--       },
+--     }
+--   end,
+-- }
+--
+-- return M
