@@ -17,7 +17,7 @@ local sources = {
   formatting.stylua,
 
   -- cpp
-  -- formatting.clang_format,
+  formatting.clang_format,
 
   -- tex
   formatting.latexindent,
