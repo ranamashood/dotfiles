@@ -232,6 +232,15 @@ local plugins = {
     "lervag/vimtex",
     lazy = false,
   },
+
+  {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end,
+    cmd = { "Trouble", "TroubleToggle" },
+  },
 }
 
 return plugins

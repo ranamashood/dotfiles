@@ -14,6 +14,8 @@ M.disabled = {
     ["<leader>ra"] = "",
     ["<leader>rh"] = "",
     ["<leader>rn"] = "",
+    ["<leader>td"] = "",
+    ["<leader>th"] = "",
   },
 }
 
@@ -49,7 +51,7 @@ M.general = {
     },
 
     -- telescope
-    ["<leader>ts"] = {
+    ["<leader>fs"] = {
       ":Telescope lsp_document_symbols<CR>",
       "document symbols",
     },
@@ -63,6 +65,14 @@ M.general = {
       ":VimtexView<CR>",
       "View latex as pdf",
     },
+
+    -- trouble
+    ["<leader>tx"] = { ":TroubleToggle<cr>", "toggle" },
+    ["<leader>tw"] = { ":TroubleToggle workspace_diagnostics<cr>", "workspace diagnostics" },
+    ["<leader>td"] = { ":TroubleToggle document_diagnostics<cr>", "document diagnostics" },
+    ["<leader>tq"] = { ":TroubleToggle quickfix<cr>", "quickfix" },
+    ["<leader>tl"] = { ":TroubleToggle loclist<cr>", "loclist" },
+    ["<leader>tr"] = { ":TroubleToggle lsp_references<cr>", "references" },
   },
 }
 
