@@ -10,8 +10,8 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
 
   -- webdev stuff
-  formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  formatting.deno_fmt,                                                    -- choosed deno for ts/js files cuz its very fast!
+  formatting.prettier.with({ filetypes = { "html", "markdown", "css" } }), -- so prettier works only on these filetypes
 
   -- lua
   formatting.stylua,
@@ -23,7 +23,7 @@ local sources = {
   formatting.latexindent,
 }
 
-null_ls.setup {
+null_ls.setup({
   debug = true,
   sources = sources,
   on_attach = function()
@@ -38,4 +38,4 @@ null_ls.setup {
     -- change spaces to tabs
     command = "retab",
   }),
-}
+})

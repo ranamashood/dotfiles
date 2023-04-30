@@ -1,4 +1,4 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -12,13 +12,13 @@ local plugins = {
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require "custom.configs.null-ls"
+          require("custom.configs.null-ls")
         end,
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
   },
 
@@ -68,9 +68,9 @@ local plugins = {
     "nvim-orgmode/orgmode",
     config = function()
       require("orgmode").setup_ts_grammar()
-      require("orgmode").setup {
+      require("orgmode").setup({
         org_agenda_files = { "~/org/*" },
-      }
+      })
     end,
     lazy = false,
   },
@@ -86,7 +86,7 @@ local plugins = {
   {
     "RRethy/vim-illuminate",
     config = function()
-      require("illuminate").configure {
+      require("illuminate").configure({
         delay = 120,
         filetypes_denylist = {
           "dirvish",
@@ -103,7 +103,7 @@ local plugins = {
           "DressingSelect",
           "TelescopePrompt",
         },
-      }
+      })
     end,
     lazy = false,
   },
@@ -112,7 +112,7 @@ local plugins = {
     "CRAG666/code_runner.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-      require("code_runner").setup {
+      require("code_runner").setup({
         -- put here the commands by filetype
         filetype = {
           java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -129,7 +129,7 @@ local plugins = {
           sh = "cd $dir && bash $fileName",
           cs = "cd $dir && dotnet run",
         },
-      }
+      })
     end,
     lazy = false,
   },
@@ -144,14 +144,14 @@ local plugins = {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup {}
+      require("nvim-surround").setup({})
     end,
   },
 
   {
     "ethanholz/nvim-lastplace",
     config = function()
-      require("nvim-lastplace").setup {}
+      require("nvim-lastplace").setup({})
     end,
     lazy = false,
   },
@@ -165,7 +165,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-      require("todo-comments").setup {}
+      require("todo-comments").setup({})
     end,
     lazy = false,
   },
@@ -184,7 +184,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      local dap = require "dap"
+      local dap = require("dap")
 
       dap.adapters.codelldb = {
         type = "server",
