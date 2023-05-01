@@ -230,6 +230,8 @@ local plugins = {
 
   {
     "lervag/vimtex",
+    -- FIX:
+    -- cmd = { "VimtexCompile" },
     lazy = false,
   },
 
@@ -240,6 +242,11 @@ local plugins = {
       require("trouble").setup({})
     end,
     cmd = { "Trouble", "TroubleToggle" },
+  },
+
+  {
+    "nvim-telescope/telescope-symbols.nvim",
+    lazy = false,
   },
 }
 
