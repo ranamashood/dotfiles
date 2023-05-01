@@ -1,5 +1,5 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    fastfetch
 end
 
 # export 
@@ -46,5 +46,3 @@ function list-packages-date
 end
 
 starship init fish | source
-
-fastfetch
