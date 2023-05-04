@@ -110,6 +110,9 @@ M.general = {
     ["<leader>tq"] = { ":TroubleToggle quickfix<cr>", "quickfix" },
     ["<leader>tl"] = { ":TroubleToggle loclist<cr>", "loclist" },
     ["<leader>tr"] = { ":TroubleToggle lsp_references<cr>", "references" },
+
+    -- todo comments
+    ["<leader>fn"] = { ":TodoTelescope<cr>", "todo" },
   },
 }
 
