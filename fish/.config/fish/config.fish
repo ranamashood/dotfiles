@@ -16,7 +16,7 @@ export VISUAL='nvim'
 export PAGER='nvimpager'
 export MANPAGER='nvimpager'
 
-alias v="nvim"
+alias v="lvim"
 
 alias ls='exa --git --icons'
 alias la='ls -a'
@@ -45,4 +45,5 @@ function list-packages-date
   expac --timefmt='%F %T' '%l %n' | sort -n
 end
 
+[ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 starship init fish | source
