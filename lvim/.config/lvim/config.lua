@@ -30,5 +30,11 @@ lvim.plugins = {
   {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
+  },
+  {
+    "ethanholz/nvim-lastplace",
+    config = function()
+      require 'nvim-lastplace'.setup {}
+    end
   }
 }
