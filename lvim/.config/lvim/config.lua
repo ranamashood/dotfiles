@@ -16,6 +16,8 @@ lvim.keys.normal_mode["<M-S-l>"] = ":BufferLineMoveNext<CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.builtin.terminal.open_mapping = "<M-v>"
 
+lvim.builtin.which_key.mappings["la"] = { ":CodeActionMenu<CR>", "Code Action" }
+
 lvim.plugins = {
   -- { "wakatime/vim-wakatime" }
   {
@@ -24,5 +26,9 @@ lvim.plugins = {
       require "live_server.util".install()
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+  },
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
   }
 }
