@@ -11,10 +11,10 @@ set fish_greeting
 # set fish_cursor_replace_one underscore blink
 # set fish_cursor_visual      block
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export PAGER='nvimpager'
-export MANPAGER='nvimpager'
+export EDITOR='lvim'
+export VISUAL='lvim'
+export PAGER='less'
+export MANPAGER='less'
 
 alias v="lvim"
 
@@ -33,8 +33,12 @@ alias pd="unset HISTFILE && sudo protonvpn d"
 alias uh="unset HISTFILE"
 alias dust="dust -X hdd"
 
+function cr
+  g++ $argv[1] -o builtFile && ./builtFile
+end
+
 function gra
-  git remote add origin git@github.com:ranamashood/$1.git
+  git remote add origin git@github.com:ranamashood/$argv[1].git
 end
 
 function list-packages-size
