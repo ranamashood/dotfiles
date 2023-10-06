@@ -1,0 +1,5 @@
+fix winbar lualine breadcrumbs
+fix prettierd and try removing prettier from settings as well as uninstall it
+rm -rf ~/.local/share/nvim
+
+fzf search %:t in lvim
