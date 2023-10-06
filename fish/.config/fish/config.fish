@@ -33,6 +33,11 @@ alias pd="unset HISTFILE && sudo protonvpn d"
 alias uh="unset HISTFILE"
 alias dust="dust -X hdd"
 
+
+bind \cg echo\ -n\ \(clear\ \|\ string\ replace\ \\e\\\[3J\ \"\"\)\;\ commandline\ -f\ repaint
+bind -M visual \cg echo\ -n\ \(clear\ \|\ string\ replace\ \\e\\\[3J\ \"\"\)\;\ commandline\ -f\ repaint
+bind -M insert \cg echo\ -n\ \(clear\ \|\ string\ replace\ \\e\\\[3J\ \"\"\)\;\ commandline\ -f\ repaint
+
 function cr
   g++ $argv[1] -o builtFile && ./builtFile
 end
