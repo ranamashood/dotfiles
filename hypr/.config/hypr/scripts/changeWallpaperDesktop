@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIR=$HOME/Insync/Apps/Dual-monitor
 PICS=($(ls ${DIR}))

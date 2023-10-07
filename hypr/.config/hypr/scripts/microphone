@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 iDIR="$HOME/.config/hypr/mako/icons"
 
-SOURCE="alsa_input.pci-0000_00_1b.0.analog-stereo"
+SOURCE="alsa_input.pci-0000_00_1f.3.analog-stereo"
 
 # Get Volume
 get_volume() {
