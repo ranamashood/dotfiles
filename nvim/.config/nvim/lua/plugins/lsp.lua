@@ -25,16 +25,25 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require("lspconfig")
     for _, lsp in ipairs(settings.lsps) do
-      if lsp == "clangd" then
-        capabilities.offsetEncoding = { "utf-16" }
+      if lsp == "rust_analyzer" then
+        require("rust-tools").setup({ server = { capabilities = capabilities, standalone = true } })
+      else
+        if lsp == "clangd" then
+          capabilities.offsetEncoding = { "utf-16" }
+        end
+        lspconfig[lsp].setup({
+          capabilities = capabilities,
+          on_attach = function(client)
+            if client.name == "dartls" then
+              require("null-ls").disable({ "prettier" })
+            end
+          end,
+        })
       end
-      lspconfig[lsp].setup({
-        capabilities = capabilities,
-      })
     end
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
     vim.lsp.handlers["textDocument/signatureHelp"] =
-      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
   end,
 }

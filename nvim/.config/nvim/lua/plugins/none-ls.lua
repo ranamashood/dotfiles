@@ -39,23 +39,28 @@ return {
       end,
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettierd.with({
-          filetypes = {
-            "html",
-            "css",
-          },
-        }),
+        null_ls.builtins.formatting.prettierd,
+        -- null_ls.builtins.formatting.prettierd.with({
+        --   filetypes = {
+        --     "html",
+        --     "css",
+        --   },
+        -- }),
         null_ls.builtins.formatting.clang_format.with({
           filetypes = { "c", "cpp" },
         }),
         null_ls.builtins.formatting.fixjson.with({
           filetypes = { "json", "jsonc" },
         }),
-        null_ls.builtins.formatting.biome.with({
-          disabled_filetypes = { "json", "jsonc" },
-        }),
-        null_ls.builtins.diagnostics.markuplint,
-        null_ls.builtins.formatting.autopep8,
+        -- null_ls.builtins.formatting.biome.with({
+        --   disabled_filetypes = { "json", "jsonc" },
+        -- }),
+        null_ls.builtins.formatting.black,
+        -- null_ls.builtins.diagnostics.markuplint,
+        null_ls.builtins.formatting.cmake_format,
+        null_ls.builtins.diagnostics.cmake_lint,
+        null_ls.builtins.formatting.markdownlint,
+        null_ls.builtins.diagnostics.markdownlint,
 
         -- null_ls.builtins.diagnostics.eslint,
         -- null_ls.builtins.completion.spell,

@@ -153,5 +153,6 @@ return {
   },
   custom = {
     calc = "󰃬",
+    emoji = "",
   },
 }

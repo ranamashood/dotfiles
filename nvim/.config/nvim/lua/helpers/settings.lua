@@ -9,9 +9,12 @@ M.lsps = {
   "jsonls",
   "pyright",
   "neocmake",
+  "emmet_language_server",
+  "rust_analyzer",
 }
 
 M.mason_tools_ensured_installed = {
+
   -- formatters
   "stylua",
   "prettier",
@@ -19,10 +22,12 @@ M.mason_tools_ensured_installed = {
   "clang-format",
   "fixjson",
   "biome",
-  "autopep8",
+  "black",
+  "cmakelang",
 
   -- linters
   "markuplint",
+  "markdownlint",
 }
 
 M.treesitter_ensure_installed = {

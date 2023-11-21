@@ -4,7 +4,7 @@ return {
     event = "BufReadPost",
   },
   {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup()
     end,
@@ -54,5 +54,29 @@ return {
     config = function()
       vim.g.lazygit_floating_window_scaling_factor = 1
     end,
+  },
+  {
+    "aurum77/live-server.nvim",
+    config = function()
+      require("live_server.util").install()
+    end,
+    cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.g.mkdp_open_to_the_world = 1
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    -- config = function()
+    --   require("rust-tools").setup()
+    -- end,
   },
 }

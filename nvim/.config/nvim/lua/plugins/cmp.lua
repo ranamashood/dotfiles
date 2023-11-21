@@ -9,6 +9,7 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-calc",
     "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-emoji",
   },
   config = function()
     local has_words_before = function()
@@ -28,8 +29,8 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
@@ -60,6 +61,8 @@ return {
           vim_item.kind = icons.kind[vim_item.kind] .. " " .. vim_item.kind
           if entry.source.name == "calc" then
             vim_item.kind = icons.custom.calc .. " Calc"
+          elseif entry.source.name == "emoji" then
+            vim_item.kind = icons.custom.emoji .. " Emoji"
           end
           vim_item.menu = ({
             nvim_lsp = "(LSP)",
@@ -67,6 +70,7 @@ return {
             calc = "(Calc)",
             luasnip = "(Snippet)",
             buffer = "(Buffer)",
+            emoji = "(Emoji)",
           })[entry.source.name]
           return vim_item
         end,
@@ -82,6 +86,7 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
+        { name = "emoji" },
       }),
     })
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
