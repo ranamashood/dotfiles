@@ -111,4 +111,36 @@ return {
       require("colorizer").setup()
     end,
   },
+  {
+    "akinsho/flutter-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("flutter-tools").setup({})
+    end,
+  },
+  {
+    "telescope.nvim",
+    dependencies = {
+      "debugloop/telescope-undo.nvim",
+      "akinsho/flutter-tools.nvim",
+      config = function()
+        require("telescope").load_extension("undo")
+        require("telescope").load_extension("flutter")
+      end,
+    },
+  },
+  {
+    "IogaMaster/neocord",
+    event = "VeryLazy",
+    config = function()
+      require("neocord").setup()
+    end,
+  },
+  -- {
+  --   "andweeb/presence.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("presence").setup()
+  --   end,
+  -- },
 }
