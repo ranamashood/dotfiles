@@ -11,12 +11,12 @@ set fish_greeting
 # set fish_cursor_replace_one underscore blink
 # set fish_cursor_visual      block
 
-export EDITOR='lvim'
-export VISUAL='lvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 export MANPAGER='less'
 
-alias v="lvim"
+alias v="nvim"
 
 alias ls='exa --git --icons'
 alias la='ls -a'
@@ -39,19 +39,19 @@ bind -M visual \cg echo\ -n\ \(clear\ \|\ string\ replace\ \\e\\\[3J\ \"\"\)\;\ 
 bind -M insert \cg echo\ -n\ \(clear\ \|\ string\ replace\ \\e\\\[3J\ \"\"\)\;\ commandline\ -f\ repaint
 
 function cr
-  g++ $argv[1] -o builtFile && ./builtFile
+    g++ $argv[1] -o builtFile && ./builtFile
 end
 
 function gra
-  git remote add origin git@github.com:ranamashood/$argv[1].git
+    git remote add origin git@github.com:ranamashood/$argv[1].git
 end
 
 function list-packages-size
-  expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'
+    expac "%n %m" | sort -gk2 | awk '{sum+=$2; printf "%-30s%20.2f MiB\n", $1, $2/2^20} END {printf "----------\n%-30s%20.2f GiB\n", "Total:", sum/2^30}'
 end
 
 function list-packages-date
-  expac --timefmt='%F %T' '%l %n' | sort -n
+    expac --timefmt='%F %T' '%l %n' | sort -n
 end
 
 [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
