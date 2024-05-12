@@ -1,5 +1,0 @@
-# /usr/bin/mountHdd
-
-#!/bin/bash
-
-mount /dev/sdb1 /home/mashood/hdd/
