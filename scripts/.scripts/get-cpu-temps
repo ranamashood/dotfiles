@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# cd ~ && ls | rofi -dmenu | xargs -r du -hc --max-depth=0 | tail -n 1 | sed "s/[\/S]*total//"
-# cd ~ && ls | rofi -dmenu | xargs -r du -hc --max-depth=0 | tail -n 1 | sed "s/[\/S]*total//"
-# cd ~ && ls | rofi -dmenu | xargs -r du -hc --max-depth=0 | tail -n 1 | sed "s/\ttotal//"

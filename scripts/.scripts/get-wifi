@@ -1,4 +1,0 @@
-#!/bin/bash
-
-SSID="$(iwgetid -r)"
-qrencode -t ansiutf8 "WIFI:S:$SSID;T:WPA;P:$(nmcli -s -g 802-11-wireless-security.psk connection show "$SSID")"
