@@ -1,5 +1,4 @@
 const hyprland = await Service.import("hyprland");
-const notifications = await Service.import("notifications");
 const mpris = await Service.import("mpris");
 const audio = await Service.import("audio");
 const battery = await Service.import("battery");
@@ -45,24 +44,6 @@ function Clock() {
   });
 }
 
-// we don't need dunst or any other notification daemon
-// because the Notifications module is a notification daemon itself
-function Notification() {
-  const popups = notifications.bind("popups");
-  return Widget.Box({
-    class_name: "notification",
-    visible: popups.as((p) => p.length > 0),
-    children: [
-      Widget.Icon({
-        icon: "preferences-system-notifications-symbolic",
-      }),
-      Widget.Label({
-        label: popups.as((p) => p[0]?.summary || ""),
-      }),
-    ],
-  });
-}
-
 function Media() {
   const label = Utils.watch("", mpris, "player-changed", () => {
     if (mpris.players[0]) {
@@ -105,40 +86,77 @@ function Volume() {
     icon: Utils.watch(getIcon(), audio.speaker, getIcon),
   });
 
-  const slider = Widget.Slider({
-    hexpand: true,
-    draw_value: false,
-    on_change: ({ value }) => (audio.speaker.volume = value),
-    setup: (self) =>
-      self.hook(audio.speaker, () => {
-        self.value = audio.speaker.volume || 0;
-      }),
+  function getVolume() {
+    return `${Math.floor(audio.speaker.volume * 100).toString()}%`;
+  }
+
+  const label = Widget.Label({
+    label: Utils.watch(getVolume(), audio.speaker, getVolume),
   });
 
   return Widget.Box({
     class_name: "volume",
-    css: "min-width: 180px",
-    children: [icon, slider],
+    children: [icon, label],
+  });
+}
+
+function Microphone() {
+  const icons = {
+    67: "high",
+    34: "medium",
+    1: "low",
+    0: "muted",
+  };
+
+  function getIcon() {
+    const icon = audio.microphone.is_muted
+      ? 0
+      : [67, 34, 1, 0].find(
+          (threshold) => threshold <= audio.microphone.volume * 100,
+        );
+
+    return `microphone-sensitivity-${icons[icon]}-symbolic`;
+  }
+
+  const icon = Widget.Icon({
+    icon: Utils.watch(getIcon(), audio.microphone, getIcon),
+  });
+
+  function getVolume() {
+    return `${Math.floor(audio.microphone.volume * 100).toString()}%`;
+  }
+
+  const label = Widget.Label({
+    label: Utils.watch(getVolume(), audio.microphone, getVolume),
+  });
+
+  return Widget.Box({
+    class_name: "microphone",
+    children: [icon, label],
   });
 }
 
 function BatteryLabel() {
-  const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
-  const icon = battery
-    .bind("percent")
-    .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
+  function getIcon() {
+    return battery.icon_name;
+  }
+
+  const icon = Widget.Icon({
+    icon: Utils.watch(getIcon(), battery, getIcon),
+  });
+
+  function getBattery() {
+    return `${battery.percent.toString()}%`;
+  }
+
+  const label = Widget.Label({
+    label: Utils.watch(getBattery(), battery, getBattery),
+  });
 
   return Widget.Box({
     class_name: "battery",
     visible: battery.bind("available"),
-    children: [
-      Widget.Icon({ icon }),
-      Widget.LevelBar({
-        widthRequest: 140,
-        vpack: "center",
-        value,
-      }),
-    ],
+    children: [icon, label],
   });
 }
 
@@ -170,7 +188,7 @@ function Left() {
 function Center() {
   return Widget.Box({
     spacing: 8,
-    children: [Media(), Notification()],
+    children: [Media()],
   });
 }
 
@@ -178,7 +196,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 8,
-    children: [Volume(), BatteryLabel(), Clock(), SysTray()],
+    children: [Volume(), Microphone(), BatteryLabel(), Clock(), SysTray()],
   });
 }
 
