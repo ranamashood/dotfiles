@@ -130,17 +130,9 @@ return {
     },
   },
   {
-    "IogaMaster/neocord",
+    "vyfor/cord.nvim",
+    build = "./build",
     event = "VeryLazy",
-    config = function()
-      require("neocord").setup()
-    end,
+    opts = {},
   },
-  -- {
-  --   "andweeb/presence.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("presence").setup()
-  --   end,
-  -- },
 }
