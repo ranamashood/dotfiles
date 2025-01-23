@@ -30,7 +30,7 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<C-j>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.select_next_item()
@@ -44,7 +44,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<C-k>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif luasnip.jumpable(-1) then
@@ -53,6 +53,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       })
     end,
   },
@@ -135,4 +136,77 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      -- "ibhagwan/fzf-lua", -- optional
+    },
+    config = true,
+  },
+  {
+    "kawre/leetcode.nvim",
+    cmd = "Leet",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
+      storage = {
+        home = "~/hdd/projects/interview/leetcode",
+        cache = vim.fn.stdpath("cache") .. "/leetcode",
+      },
+    },
+    keys = {
+      { "<leader>pl", "<cmd>Leet<cr>", desc = "Leetcode" },
+      { "<leader>pr", "<cmd>Leet run<cr>", desc = "Leetcode Run" },
+    },
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  -- {
+  --   "Saghen/blink.cmp",
+  --   keys = {
+  --     { "<C-j>", "select_next", "fallback" },
+  --     { "<C-k>", "select_prev", "fallback" },
+  --     { "<Tab>", "select_and_accept" }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  --   },
+  -- },
 }

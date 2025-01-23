@@ -1,5 +1,6 @@
 vim.keymap.set({ "n" }, "<leader>ml", "<cmd>LiveServer<cr>", { silent = true })
 vim.keymap.set({ "n" }, "<leader>mf", "<cmd>Telescope flutter commands<cr>", { silent = true })
+vim.keymap.set({ "n" }, "<leader>mg", "<cmd>Telescope git_status<cr>", { silent = true })
 
 vim.keymap.set("n", "<A-S-j>", ":m .+1<CR>==", { silent = true })
 vim.keymap.set("n", "<A-S-k>", ":m .-2<CR>==", { silent = true })

@@ -15,6 +15,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 export MANPAGER='less'
+export GPG_TTY=$(tty)
 
 alias v="nvim"
 
